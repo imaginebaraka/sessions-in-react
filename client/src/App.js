@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Register } from "./app/Register";
+import { Login } from "./app/Login";
+import React, { useState } from "react";
 
 function App() {
+  const [isLoggedin, setIsLoggedIn] = useState("");
+  const [user, setUser] = useState({});
+
+  const handleStatusChange = (user, status) => {
+    setIsLoggedIn(status);
+    setUser(user);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>React Authentication</h1>
+      <Register />
+      <br />
+      <br />
+      <Login onstatuschange={handleStatusChange} />
+      <h2>
+        {isLoggedin === "loggedin"
+          ? `Hello ${user.firstname}`
+          : isLoggedin === "Wrong details"
+          ? "Wrong username/password combination"
+          : "Hi guest"}
+      </h2>
     </div>
   );
 }
