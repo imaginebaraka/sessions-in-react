@@ -1,0 +1,31 @@
+{
+  "name": "react-auth",
+  "version": "1.0.0",
+  "description": "User Authenticatation and authorization with react",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"yarn server\" \"yarn client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imaginebaraka/react-auth.git"
+  },
+  "keywords": [
+    "react",
+    "mysql",
+    "jwt",
+    "auth",
+    "express"
+  ],
+  "author": "baraka mulumia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imaginebaraka/react-auth/issues"
+  },
+  "homepage": "https://github.com/imaginebaraka/react-auth#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
