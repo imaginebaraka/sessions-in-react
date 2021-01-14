@@ -5,6 +5,7 @@ export const Login = ({ onstatuschange }) => {
   const [password, setPassword] = useState("");
   const [username, setUserName] = useState("");
 
+  axios.defaults.withCredentials = true;
   const onLogin = () => {
     axios
       .post("http://localhost:8080/login", {
@@ -14,12 +15,11 @@ export const Login = ({ onstatuschange }) => {
       .then((response) => {
         if (response.status === 200) {
           if (response.data.length) {
-            onstatuschange(response.data[0], "loggedin");
+            onstatuschange(response.data[0].username);
           }
           if (response.data.message) {
-            onstatuschange(response.data[0], response.data.message);
+            onstatuschange(response.data.message);
           }
-          console.log(response.data);
         }
       })
       .catch((e) => console.log(e));

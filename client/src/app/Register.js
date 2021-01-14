@@ -33,7 +33,7 @@ export const Register = () => {
 
   return (
     <div className="registerForm">
-      <label htmlFor="firstName">Firts Name</label>
+      <label htmlFor="firstName">First Name</label>
       <input
         type="text"
         name="firstName"
